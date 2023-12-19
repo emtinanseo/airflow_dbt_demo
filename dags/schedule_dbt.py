@@ -3,9 +3,9 @@ from airflow.operators.bash_operator import BashOperator
 from datetime import datetime
 from datetime import timedelta
 
-dir = "working dir"
+dir = "path/to/airflow_dbt_demo" # path to workind dir
 env_path = "/path/to/env" # path to virtual env that has dbt installed
-dbt_project_dir = "/path/to/dbt_project" # dbt project dir
+dbt_project_dir = "/path/to/dbt_demo" # dbt project dir
 dbt_profile_dir = "/path/to/.dbt" # where the file profiles.yml is stored
 
 default_args = {
