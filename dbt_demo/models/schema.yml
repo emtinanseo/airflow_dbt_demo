@@ -1,0 +1,33 @@
+version: 2
+
+models:
+  - name: customers
+    description: One line per customer
+    columns:
+      - name: customer_id
+        description: Primary key
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_orders
+    description: This models groups orders info by customer
+    columns:
+      - name: customer_id
+        description: Primary key
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_payments
+    columns:
+      - name: customer_id
+        description: Primary key
+        tests:
+          - unique
+          - not_null
+          - relationships:
+              to: ref('stg_orders')
+              field: customer_id
+      - name: total_amount
+        description: Total paid by the customer for all their orders
